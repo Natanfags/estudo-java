@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailSerivce {
 
-    private PlataformaEnvio plataforma;
+    private final PlataformaEnvio plataforma;
 
     public EmailSerivce(PlataformaEnvio plataforma) {
         this.plataforma = plataforma;

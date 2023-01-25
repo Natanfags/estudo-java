@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
@@ -34,7 +35,7 @@ class EmailSerivceTest {
         String mensagemErrada = "mensagem diferente";
 
         emailSerivce.enviar(para, assunto, mensagem);
-        verify(plataforma).enviar(emailArgumentCaptor.capture());
+        verify(plataforma, times(1)).enviar(emailArgumentCaptor.capture());
 
         Email expect = emailArgumentCaptor.getValue();
 
